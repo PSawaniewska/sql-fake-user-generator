@@ -29,8 +29,22 @@ if st.session_state.get("params") != (locale, seed):
     st.session_state.params = (locale, seed)
     st.session_state.batch = 0
 
+COLUMN_LABELS = {
+    "num": "#",
+    "full_name": "Name",
+    "gender": "Gender",
+    "address": "Address",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "height_cm": "Height, cm",
+    "weight_kg": "Weight, kg",
+    "eye_color": "Eye color",
+    "phone": "Phone",
+    "email": "E-mail",
+}
+
 users = query("SELECT * FROM faker_users(%s, %s, %s, %s)", (locale, seed, st.session_state.batch, BATCH_SIZE))
-st.dataframe(users, hide_index=True)
+st.dataframe(users.rename(columns=COLUMN_LABELS), hide_index=True)
 
 if st.button("Next batch", type="primary"):
     st.session_state.batch += 1

@@ -146,8 +146,8 @@ $$;
 CREATE OR REPLACE FUNCTION faker_geo(p_key text)
 RETURNS TABLE (latitude double precision, longitude double precision)
 LANGUAGE sql IMMUTABLE PARALLEL SAFE AS $$
-    SELECT round(degrees(asin(2 * faker_random(p_key, 'lat') - 1))::numeric, 6)::double precision,
-           round((360 * faker_random(p_key, 'lon') - 180)::numeric, 6)::double precision
+    SELECT round(degrees(asin(2 * faker_random(p_key, 'lat') - 1))::numeric, 4)::double precision,
+           round((360 * faker_random(p_key, 'lon') - 180)::numeric, 4)::double precision
 $$;
 
 -- height from a normal distribution, weight from a normal BMI, so the two stay realistic together
@@ -161,8 +161,8 @@ LANGUAGE sql STABLE PARALLEL SAFE AS $$
         FROM locales l
         WHERE l.code = p_locale
     )
-    SELECT round(height::numeric, 1),
-           round((greatest(16, least(45, faker_normal(p_key, 'bmi', 25, 4))) * (height / 100) ^ 2)::numeric, 1),
+    SELECT round(height::numeric),
+           round((greatest(16, least(45, faker_normal(p_key, 'bmi', 25, 4))) * (height / 100) ^ 2)::numeric),
            faker_pick_weighted(p_locale, 'eye_color', faker_random(p_key, 'eyes'))
     FROM h
 $$;
