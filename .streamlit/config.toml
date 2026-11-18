@@ -1,0 +1,13 @@
+[theme]
+base = "light"
+primaryColor = "#3F4A1F"
+backgroundColor = "#ECEAE1"
+secondaryBackgroundColor = "#DFDCCF"
+textColor = "#1A1A14"
+borderColor = "#1A1A14"
+font = "Space Mono:https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap, monospace"
+headingFont = "Archivo Black:https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&display=swap, sans-serif"
+baseRadius = "none"
+baseFontSize = 13
+headingFontSizes = ["2.25rem", "1.5rem", "1.25rem"]
+dataframeHeaderBackgroundColor = "#CFDCA2"
