@@ -2,7 +2,7 @@
 
 Generates realistic fake people (names, addresses, locations, phone numbers, e-mails, height and weight) **entirely inside a PostgreSQL database**. The same settings always give the same people, so test data can be recreated at any time.
 
-[🚀 Live app](https://sql-faker.streamlit.app) · [🎥 Video](https://youtu.be/KFyd7sDnOS0) · [📘 Technical details](docs/technical.md)
+[🚀 Live app](https://sql-faker.streamlit.app) · [📘 Technical details](docs/technical.md)
 
 ![App](images/app.png)
 
